@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+					http://www.springframework.org/schema/beans/spring-beans.xsd
+					http://www.springframework.org/schema/context
+					http://www.springframework.org/schema/context/spring-context.xsd
+					http://www.springframework.org/schema/aop
+					http://www.springframework.org/schema/aop/spring-aop.xsd
+					http://www.springframework.org/schema/tx 
+					http://www.springframework.org/schema/tx/spring-tx.xsd
+					http://www.springframework.org/schema/data/jpa 
+					http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+	<!-- 1.数据源 -->
+<!-- 	<context:property-placeholder location="classpath:redis.properties" />
+ -->	
+	<!-- 创建数据连接池 -->
+	<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<!-- maxIdle:设置一个pool连接池可以有(空闲状态)jedis实例的最多数量 -->
+		<property name="maxIdle" value="${redis.pool.maxIdle}" />      
+		<!-- maxWaitMillis:表示当borrow一个jedis实例时，最大的等待时间 -->  
+        <property name="maxWaitMillis" value="${redis.pool.maxWait}" />  
+        <!-- testOnBorrow:在borrow一个jedis实例时，是否提前进行alidate(设置空闲态)操作；
+        		如果为true，则得到的jedis实例均是可用的； -->
+        <property name="testOnBorrow" value="true" />  
+	</bean>
+	
+	<!-- 创建redis 工厂 -->
+	<bean id="redisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="hostName" value="${redis.ip}" />  
+        <property name="port" value="${redis.port}" />  
+        <!-- 设置redis存储的数据库 -->
+        <property name="database" value="${redis.database}" />  
+        <property name="poolConfig" ref="poolConfig"/>  
+	</bean>
+	
+	 <!-- database 选择对应的redis数据库存储数据 -->
+        
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">  
+        <property name="connectionFactory" ref="redisConnectionFactory" /> 
+        <!-- 对于中文的存储 需要进行序列化操作存储  -->
+        <property name="keySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+        </property>
+        <property name="valueSerializer">
+        	<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"> 
+        	</bean>
+        </property> 
+    </bean>  
+</beans>

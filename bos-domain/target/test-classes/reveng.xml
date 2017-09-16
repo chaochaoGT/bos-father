@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+<!--  定义生成实体类规范  match-table 需要将那些表生成实体类   match-catalog 操作是哪一个数据库  -->
+  <schema-selection  match-table="t_user"  match-catalog="day15"/>
+   <schema-selection  match-table="bc_.*"  match-catalog="day15"/>
+   <schema-selection  match-table="customers"  match-catalog="day15"/>
+   <schema-selection  match-table="city"  match-catalog="day15"/>
+   <schema-selection  match-table="qp_.*"  match-catalog="day15"/>
+   <schema-selection  match-table="auth_.*"  match-catalog="day15"/>
+   <schema-selection  match-table="role_.*"  match-catalog="day15"/>
+   <schema-selection  match-table="user_role"  match-catalog="day15"/>
+
+  
+  <table name="t_user" catalog="day15"
+		class="cn.ssh.bos.domain.User">
+		<!--<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>-->
+	</table>
+
+	<table name="auth_function" catalog="day15"
+		class="cn.ssh.bos.domain.auth.Function">
+		<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>
+	</table><table name="qp_noticebill" catalog="day15"
+		class="cn.ssh.bos.domain.qp.NoticeBill">
+		<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>
+	</table>
+	<table name="auth_menu" catalog="day15"
+		class="cn.ssh.bos.domain.auth.Menu">
+		<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>
+	</table><table name="auth_role" catalog="day15"
+		class="cn.ssh.bos.domain.auth.Role">
+		<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>
+	</table>
+ 
+</hibernate-reverse-engineering>

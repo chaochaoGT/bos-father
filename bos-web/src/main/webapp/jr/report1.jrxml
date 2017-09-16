@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ce84bc3-71bf-4e6f-9274-36108d771d4e">
+	<property name="ireport.zoom" value="1.1"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="author" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from bc_region]]>
+	</queryString>
+	<field name="ID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PROVINCE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CITY" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DISTRICT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="POSTCODE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHORTCODE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CITYCODE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="59" splitType="Stretch">
+			<staticText>
+				<reportElement x="123" y="11" width="319" height="38" uuid="d72134f6-43cd-491d-ba17-873211aa2c91"/>
+				<textElement textAlignment="Center">
+					<font fontName="宋体" size="24" isBold="true" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[城市信息]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="43" splitType="Stretch">
+			<textField>
+				<reportElement x="429" y="15" width="100" height="20" uuid="18011726-5ca4-4021-a80d-67cbcba8d35a"/>
+				<textElement textAlignment="Center">
+					<font fontName="宋体" size="14" isBold="true" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{author}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="84" height="20" uuid="242ac0d4-cbc7-4b5b-a8ed-607de6f94fa7"/>
+				<textElement textAlignment="Center">
+					<font fontName="宋体" size="12" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[省]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="136" y="0" width="67" height="20" uuid="c43b9a0a-6f40-40f3-a794-21f98d7688ae"/>
+				<textElement textAlignment="Center">
+					<font fontName="宋体" size="12" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[市]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="234" y="0" width="72" height="20" uuid="ee53ef11-66a3-4d24-9392-b0d469b46025"/>
+				<textElement textAlignment="Center">
+					<font fontName="宋体" size="12" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[区]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="337" y="0" width="78" height="20" uuid="0897b80e-81cf-46b2-a757-f4e008ebf003"/>
+				<textElement textAlignment="Center">
+					<font fontName="宋体" size="12" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[邮编]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="446" y="0" width="87" height="20" uuid="fe9268fb-7b8f-4db8-949b-5467c338723a"/>
+				<textElement textAlignment="Center">
+					<font fontName="宋体" size="12" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[城市简码]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="4" width="84" height="20" uuid="e3c8c8f9-b752-41c2-8b5f-082a82b4966b"/>
+				<textElement textAlignment="Center">
+					<font fontName="宋体" size="12" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PROVINCE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="4" width="67" height="20" uuid="e503b16b-7bd1-4242-951b-46bc53b52e6e"/>
+				<textElement textAlignment="Center">
+					<font fontName="宋体" size="12" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CITY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="4" width="72" height="20" uuid="b1968609-581b-43f4-a4b6-56300ba150a1"/>
+				<textElement textAlignment="Center">
+					<font fontName="宋体" size="12" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DISTRICT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="4" width="78" height="20" uuid="a6f693d5-c06a-4f24-9f88-9984a68f3e4c"/>
+				<textElement textAlignment="Center">
+					<font fontName="宋体" size="12" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{POSTCODE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="446" y="4" width="87" height="20" uuid="7f7e4adf-896b-4ac7-b4e9-3dc4dc1301c8"/>
+				<textElement textAlignment="Center">
+					<font fontName="宋体" size="12" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SHORTCODE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

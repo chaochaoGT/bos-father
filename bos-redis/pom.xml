@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cn.itcast.ssh.bos</groupId>
+    <artifactId>bos-father</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>bos-redis</artifactId>
+  <dependencies>
+  	<dependency>
+  		<groupId>cn.itcast.ssh.bos</groupId>
+  		<artifactId>bos-dao</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+
+  	<!-- 引入redis的jedis -->
+  	<dependency>
+  		<groupId>redis.clients</groupId>
+  		<artifactId>jedis</artifactId>
+  	</dependency>
+  	
+  	
+	 <!-- spring整合redis -->
+  	<dependency>
+  		<groupId>org.springframework.data</groupId>
+  		<artifactId>spring-data-redis</artifactId>
+  	</dependency>
+	  <dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <scope>test</scope>
+	  </dependency>
+  </dependencies>
+  
+  
+</project>
